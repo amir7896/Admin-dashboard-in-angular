@@ -25,7 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-## For Installin Packages
+## For Installing Packages
 npm i chart.js@2.9.3
-## Second Run Command
 npm i ng2-charts@2.4.2
+// Installation for Angular CLI
+ng add @ng-bootstrap/ng-bootstrap
+npm i ng-sidebar
+## Import Module in app.module.ts
+import { SidebarModule } from 'ng-sidebar';
+import { ChartsModule } from 'ng2-charts';
+## Also Add in Imports List
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    SidebarModule.forRoot(),
+    ChartsModule
+  ],
+

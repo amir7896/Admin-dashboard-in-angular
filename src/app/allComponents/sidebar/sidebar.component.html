@@ -1,0 +1,116 @@
+<ng-sidebar-container *ngIf="hidesidebar">
+  <!-- A sidebar -->
+  <ng-sidebar [(opened)]="_opened" mode="push" position="left">
+    <div id="closebutton">
+      <button (click)="_toggleSidebar()">Close sidebar</button>
+    </div>
+    <hr />
+    <ul>
+      <li><a routerLink="/tutorials">Tutorials</a></li>
+      <li><a routerLink="/about-us">About US</a></li>
+      <!-- <li><a routerLink="/our-services">Tutorials</a></li> -->
+    </ul>
+  </ng-sidebar>
+
+  <!-- Page content -->
+  <div ng-sidebar-content>
+    <button  (click)="_toggleSidebar()">Toggle sidebar</button>
+    <div class="container">
+      <h1> Dash Board </h1>
+      <!-- ------------------ -->
+      <!-- Line Chart -->
+      <!-- ------------------ -->
+      <div class="row mt-4">
+        <h5>Line Chart</h5>
+        <div class="col-md-6 col-lg-6">
+          <div style="display: block;">
+            <canvas baseChart width="400" height="400"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"></canvas>
+            </div>
+        </div>
+        <!-- ----------------- -->
+        <!-- Bar Chart -->
+        <!-- ----------------- -->
+        <div class="col-md-6 col-lg-6" style="height: 300px;">
+          <h5>Bar Chart</h5>
+          <div style="display: block">
+            <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+            </canvas>
+          </div>
+          <button   class="btn btn-primary" (click)="randomize()">Update</button>
+        </div>
+      </div>
+      <!-- ------------------ -->
+      <!-- Doghunt Chart -->
+      <!-- ------------------ -->
+      <div class="row mt-5">
+        <h5>Doghunt Chart</h5>
+        <div class="col-md-6 col-lg-6">
+          <div style="display: block">
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
+          </div>
+        </div>
+        <!-- ----------------- -->
+        <!-- Radar Chart -->
+        <!-- ----------------- -->
+        <div class="col-md-6 col-lg-6" style="height: 300px;">
+          <h5>Radar Chart</h5>
+          <div style="display: block">
+            <canvas baseChart
+              [datasets]="radarChartData"
+              [options]="radarChartOptions"
+              [labels]="radarChartLabels"
+              [chartType]="radarChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <!-- *****Color Property Is Not Compulsory In Charts
+      And Legend Is Also Not  Compulsory -->
+      <!-- ------------------ -->
+      <!-- Pie Chart -->
+      <!-- ------------------ -->
+      <div class="row mt-5">
+        <h5>Pie Chart</h5>
+        <div class="col-md-6 col-lg-6">
+          <div style="display: block">
+            <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions">
+          </canvas>
+          </div>
+        </div>
+        <!-- ----------------- -->
+        <!-- Polar Area Chart -->
+        <!-- ----------------- -->
+        <div class="col-md-6 col-lg-6" style="height: 300px;">
+          <h5>Polar Area Chart</h5>
+          <div style="display: block">
+            <canvas baseChart
+            [data]="polarAreaChartData"
+            [labels]="polarAreaChartLabels"
+            [legend]="polarAreaLegend"
+            [chartType]="polarAreaChartType">
+          </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-sidebar-container>
